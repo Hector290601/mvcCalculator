@@ -31,7 +31,7 @@ public class modelo {
         int opc = 0, operator = 0;
         Scanner reader = new Scanner(System.in);
         do{
-            System.out.println("Seleccione una opción\t\n1)Suma\n\t2)Resta\n\t3)multiplicación\n\t4)Division\n\t5)Salir");
+            System.out.println("Seleccione una opción\t\t\tresultado:" + resultadoInt + "\n\t1)Suma\n\t2)Resta\n\t3)multiplicación\n\t4)Division\n\t5)Salir");
             opc = reader.nextInt();
             switch(opc){
                 case 1:
@@ -53,6 +53,9 @@ public class modelo {
                     System.out.println("La division en este momento es:" + resultadoInt + ", Ingrese el valor a sumar:");
                     operator = reader.nextInt();
                     divisionInt(operator);
+                break;
+                case 5:
+                    System.out.println("Gracias por su tiempo");
                 break;
                 default:
                     System.out.println("Parece que esa no es una opción válida");
