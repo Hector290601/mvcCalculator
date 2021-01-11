@@ -5,6 +5,8 @@
  */
 package proyectofinalcalculadora;
 
+import proyectofinalcalculadora.view.*;
+
 /**
  *
  * @author hector
@@ -15,6 +17,7 @@ public class ProyectoFinalCalculadora {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        vista vst = new vista();
     }
     
 }
