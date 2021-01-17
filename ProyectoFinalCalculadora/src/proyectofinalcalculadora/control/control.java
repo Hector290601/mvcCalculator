@@ -90,8 +90,7 @@ public class control implements ActionListener {
         }
         else if (this.calculadora.bEqual == e.getSource()) {
             operation = calculadora.salida.getText();
-            model.fromControl(operation);
-            this.calculadora.salida.setText("");
+            this.calculadora.salida.setText(model.fromControl(operation));
         }
         
     }   

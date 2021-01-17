@@ -56,21 +56,21 @@ public class modelo {
         }
         return resultado;
     }
-    public void fromControl(String operation){
-        String a = "", b = "", c = "", d = "";
+    public String fromControl(String operation){
+        String a = "", b = "", c = "", d = "", dot = ".";
         char chr;
         boolean flag = true, flag2 = true;
         for(int i = 0; i < operation.length(); i++){
             chr = operation.charAt(i);
-            if(isDigit(chr) || (".".equals(chr))){
+            if(isDigit(chr) || chr == '.'){
                 if(flag){
                     a += chr;
-                    flag = false;
                 }else{
                     b += chr;
                 }
             }else{
                 c += chr;
+                flag = false;
             }
         }
         switch(c){
@@ -88,5 +88,6 @@ public class modelo {
             break;
         }
         System.out.println("a: " + a + " b: " + b + " c: " + c + " d: " + d);
+        return d;
     }
 }
