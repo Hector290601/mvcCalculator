@@ -5,7 +5,7 @@
  */
 package proyectofinalcalculadora;
 
-import proyectofinalcalculadora.view.*;
+import proyectofinalcalculadora.view.vista;
 
 /**
  *
