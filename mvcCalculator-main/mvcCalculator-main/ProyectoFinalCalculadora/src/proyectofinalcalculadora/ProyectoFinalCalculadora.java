@@ -5,7 +5,8 @@
  */
 package proyectofinalcalculadora;
 
-import proyectofinalcalculadora.view.vista;
+import proyectofinalcalculadora.model.modelo;
+import proyectofinalcalculadora.view.*;
 
 /**
  *
@@ -18,6 +19,7 @@ public class ProyectoFinalCalculadora {
      */
     public static void main(String[] args) {
         vista vst = new vista();
+        vst.launchFrame(); 
     }
     
 }
