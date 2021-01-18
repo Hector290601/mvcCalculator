@@ -17,6 +17,7 @@ public class control implements ActionListener {
     public String operation;
     public float a = (float) 0.0;
     public float b = (float) 0.0;
+    private boolean flag = false;
     private final vista calculadora;
     modelo c;
     modelo model = new modelo();
@@ -87,8 +88,9 @@ public class control implements ActionListener {
             a=Float.parseFloat(this.calculadora.salida.getText());
             op="+";
             this.calculadora.salida.setText(calculadora.salida.getText() + " + ");
+            flag = true;
         }
-        else if (this.calculadora.bEqual == e.getSource()) {
+        else if (this.calculadora.bEqual == e.getSource() && flag) {
             operation = calculadora.salida.getText();
             this.calculadora.salida.setText(model.fromControl(operation));
         }
