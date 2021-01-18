@@ -88,6 +88,10 @@ public class modelo {
             break;
         }
         System.out.println("a: " + a + " b: " + b + " c: " + c + " d: " + d);
-        return d;
+        if((Float.parseFloat(d.substring(d.indexOf(".")))) == 0){
+            return d.substring(0, d.indexOf('.'));
+        }else{
+            return d;
+        }
     }
 }
