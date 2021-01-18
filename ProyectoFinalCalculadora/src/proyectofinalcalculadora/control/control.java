@@ -15,9 +15,9 @@ import proyectofinalcalculadora.model.*;
 public class control implements ActionListener {
     public String op;
     public String operation;
+    private String exit;
     public float a = (float) 0.0;
     public float b = (float) 0.0;
-    private boolean flag = false;
     private final vista calculadora;
     modelo c;
     modelo model = new modelo();
@@ -78,21 +78,52 @@ public class control implements ActionListener {
 
         }
         else if (this.calculadora.bDot == e.getSource()) {
-            if (!(calculadora.salida.getText().contains("."))) {
-                calculadora.salida.setText(calculadora.salida.getText() + ".");
+            String a = "", b = "";
+            int pos1;
+            a = calculadora.salida.getText();
+            pos1 = a.indexOf(" ");
+            if(pos1 != -1){
+                b = a.substring(pos1 + 3);
+            }else{
+                b = a;
             }
-
+            if(!b.contains(".")){
+                if(b.length() < 1){
+                    a+= "0";
+                }
+                a+= ".";
+            }
+            calculadora.salida.setText(a);
         }
         //Operaciones
          else if (this.calculadora.bSum == e.getSource()) {
             a=Float.parseFloat(this.calculadora.salida.getText());
             op="+";
             this.calculadora.salida.setText(calculadora.salida.getText() + " + ");
-            flag = true;
         }
-        else if (this.calculadora.bEqual == e.getSource() && flag) {
+         else if (this.calculadora.bRest == e.getSource()) {
+            a=Float.parseFloat(this.calculadora.salida.getText());
+            op="-";
+            this.calculadora.salida.setText(calculadora.salida.getText() + " - ");
+        }
+         else if (this.calculadora.bMul == e.getSource()) {
+            a=Float.parseFloat(this.calculadora.salida.getText());
+            op="*";
+            this.calculadora.salida.setText(calculadora.salida.getText() + " * ");
+        }
+         else if (this.calculadora.bDiv == e.getSource()) {
+            a=Float.parseFloat(this.calculadora.salida.getText());
+            op="/";
+            this.calculadora.salida.setText(calculadora.salida.getText() + " / ");
+        }
+        else if ((this.calculadora.bEqual == e.getSource())) {
             operation = calculadora.salida.getText();
-            this.calculadora.salida.setText(model.fromControl(operation));
+            if(operation.contains(" ")){
+                exit = model.fromControl(operation);
+                this.calculadora.salida.setText(exit);
+            }else{
+                this.calculadora.salida.setText(operation);
+            }
         }
         
     }   
