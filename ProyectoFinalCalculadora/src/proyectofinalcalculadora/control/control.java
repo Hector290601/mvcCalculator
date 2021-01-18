@@ -97,22 +97,23 @@ public class control implements ActionListener {
         }
         //Operaciones
          else if (this.calculadora.bSum == e.getSource()) {
-            a=Float.parseFloat(this.calculadora.salida.getText());
             op="+";
             this.calculadora.salida.setText(calculadora.salida.getText() + " + ");
         }
          else if (this.calculadora.bRest == e.getSource()) {
-            a=Float.parseFloat(this.calculadora.salida.getText());
+            String b = this.calculadora.salida.getText();
             op="-";
-            this.calculadora.salida.setText(calculadora.salida.getText() + " - ");
+            if(b.contains(" ") || b.isEmpty()){
+                this.calculadora.salida.setText(b + "-");
+            }else{
+                this.calculadora.salida.setText(b + " - ");
+            }
         }
          else if (this.calculadora.bMul == e.getSource()) {
-            a=Float.parseFloat(this.calculadora.salida.getText());
             op="*";
             this.calculadora.salida.setText(calculadora.salida.getText() + " * ");
         }
          else if (this.calculadora.bDiv == e.getSource()) {
-            a=Float.parseFloat(this.calculadora.salida.getText());
             op="/";
             this.calculadora.salida.setText(calculadora.salida.getText() + " / ");
         }
