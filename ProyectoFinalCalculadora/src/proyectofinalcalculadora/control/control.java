@@ -98,24 +98,30 @@ public class control implements ActionListener {
         //Operaciones
          else if (this.calculadora.bSum == e.getSource()) {
             op="+";
-            this.calculadora.salida.setText(calculadora.salida.getText() + " + ");
+            if(!this.calculadora.salida.getText().contains(" ")){
+                this.calculadora.salida.setText(calculadora.salida.getText() + " + ");
+            }
         }
          else if (this.calculadora.bRest == e.getSource()) {
             String b = this.calculadora.salida.getText();
             op="-";
             if(b.contains(" ") || b.isEmpty()){
                 this.calculadora.salida.setText(b + "-");
-            }else{
+            }else if(!this.calculadora.salida.getText().contains(" ")){
                 this.calculadora.salida.setText(b + " - ");
             }
         }
          else if (this.calculadora.bMul == e.getSource()) {
             op="*";
-            this.calculadora.salida.setText(calculadora.salida.getText() + " * ");
+            if(!this.calculadora.salida.getText().contains(" ")){
+                this.calculadora.salida.setText(calculadora.salida.getText() + " * ");
+            }
         }
          else if (this.calculadora.bDiv == e.getSource()) {
             op="/";
-            this.calculadora.salida.setText(calculadora.salida.getText() + " / ");
+            if(!this.calculadora.salida.getText().contains(" ")){
+                this.calculadora.salida.setText(calculadora.salida.getText() + " / ");
+            }
         }
         else if ((this.calculadora.bEqual == e.getSource())) {
             operation = calculadora.salida.getText();
