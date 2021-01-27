@@ -12,39 +12,37 @@ import proyectofinalcalculadora.model.*;
  *
  * @author hector
  */
-public class control implements ActionListener{
-        public String op;
-        public String operation;
-        private String exit;
-        public float a = (float) 0.0;
-        public float b = (float) 0.0;
-        private final vista calculadora;
-        modelo c;
-        modelo model = new modelo();
-        public control(vista calculadora) {
-            this.c = new modelo();
-            this.calculadora = calculadora;
-        }
-        public float geta(){
-            return a;
-        }
-        public float getb(){
-            return b;
-        }
-        public String getop(){
-            return op;
-        }
-        @Override
-        public void actionPerformed(ActionEvent e) {
+public class control implements ActionListener {
+    public String op;
+    public String operation;
+    private String exit;
+    public float a = (float) 0.0;
+    public float b = (float) 0.0;
+    private final vista calculadora;
+    modelo c;
+    modelo model = new modelo();
+    public control(vista calculadora) {
+        this.c = new modelo();
+        this.calculadora = calculadora;
+    }
+    public float geta(){
+        return a;
+    }
+    public float getb(){
+        return b;
+    }
+    public String getop(){
+        return op;
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
         if (this.calculadora.b1 == e.getSource()) {
             this.calculadora.salida.setText(this.calculadora.salida.getText() + "1");
             
         }
         else if (this.calculadora.b0 == e.getSource()) {
-            String current = calculadora.salida.getText();
-            if(!current.endsWith("/ ")){
-                calculadora.salida.setText(calculadora.salida.getText() + "0");
-            }
+            calculadora.salida.setText(calculadora.salida.getText() + "0");
+            
         }
         else if (this.calculadora.b2 == e.getSource()) {
             calculadora.salida.setText(calculadora.salida.getText() + "2");
@@ -89,9 +87,8 @@ public class control implements ActionListener{
             }else{
                 b = a;
             }
-            System.out.print(a);
             if(!b.contains(".")){
-                if(b.length() < 1 || a.endsWith("-")){
+                if(b.length() < 1){
                     a+= "0";
                 }
                 a+= ".";
@@ -101,30 +98,24 @@ public class control implements ActionListener{
         //Operaciones
          else if (this.calculadora.bSum == e.getSource()) {
             op="+";
-            if(!this.calculadora.salida.getText().contains(" ") && !this.calculadora.salida.getText().isEmpty()){
-                this.calculadora.salida.setText(calculadora.salida.getText() + " + ");
-            }
+            this.calculadora.salida.setText(calculadora.salida.getText() + " + ");
         }
          else if (this.calculadora.bRest == e.getSource()) {
             String b = this.calculadora.salida.getText();
             op="-";
             if(b.contains(" ") || b.isEmpty()){
                 this.calculadora.salida.setText(b + "-");
-            }else if(!this.calculadora.salida.getText().contains(" ") && !this.calculadora.salida.getText().isEmpty()){
+            }else{
                 this.calculadora.salida.setText(b + " - ");
             }
         }
          else if (this.calculadora.bMul == e.getSource()) {
             op="*";
-            if(!this.calculadora.salida.getText().contains(" ") && !this.calculadora.salida.getText().isEmpty()){
-                this.calculadora.salida.setText(calculadora.salida.getText() + " * ");
-            }
+            this.calculadora.salida.setText(calculadora.salida.getText() + " * ");
         }
          else if (this.calculadora.bDiv == e.getSource()) {
             op="/";
-            if(!this.calculadora.salida.getText().contains(" ") && !this.calculadora.salida.getText().isEmpty()){
-                this.calculadora.salida.setText(calculadora.salida.getText() + " / ");
-            }
+            this.calculadora.salida.setText(calculadora.salida.getText() + " / ");
         }
         else if ((this.calculadora.bEqual == e.getSource())) {
             operation = calculadora.salida.getText();
@@ -136,5 +127,7 @@ public class control implements ActionListener{
             }
         }
         
-    }
-}
+    }   
+        }
+    
+
