@@ -48,12 +48,19 @@ public class modelo {
         float valuea = Float.parseFloat(a);
         float valueb = Float.parseFloat(b);
         float res = Float.parseFloat(resultado);
-        try{
-            res = valuea / valueb;
-            resultado = Float.toString(res);
-        }catch(ArithmeticException e){
-            resultado = e.getMessage();
+        System.out.println(valuea);
+        System.out.println(valueb);
+        if((int) valueb != 0){
+            try{
+                res = valuea / valueb;
+                resultado = Float.toString(res);
+            }catch(ArithmeticException e){
+                resultado = "0";
+            }
+        }else{
+            resultado = "0";
         }
+        System.out.println(resultado);
         return resultado;
     }
     public String fromControl(String operation){
@@ -61,21 +68,6 @@ public class modelo {
         char chr;
         boolean flag = true, flag2 = true;
         int initA, initB, initC;
-        /*
-        for(int i = 0; i < operation.length(); i++){
-            chr = operation.charAt(i);
-            if(isDigit(chr) || chr == '.'){
-                if(flag){
-                    a += chr;
-                }else{
-                    b += chr;
-                }
-            }else{
-                c += chr;
-                flag = false;
-            }
-        }
-        */
         initA = 0;
         initC = operation.indexOf(" ");
         initB = operation.indexOf(" ", initC + 1);

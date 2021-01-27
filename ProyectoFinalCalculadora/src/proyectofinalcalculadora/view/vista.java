@@ -6,6 +6,7 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyListener;
 import javax.swing.*;
 import proyectofinalcalculadora.control.control;
 
@@ -46,16 +47,32 @@ public class vista {
         b8 = new JButton("8");
         b9 = new JButton("9");
         b0 = new JButton("0");
-
+        b0.setBackground(new Color(255, 255, 0));
+        b1.setBackground(new Color(255, 255, 0));
+        b2.setBackground(new Color(255, 255, 0));
+        b3.setBackground(new Color(255, 255, 0));
+        b4.setBackground(new Color(255, 255, 0));
+        b5.setBackground(new Color(255, 255, 0));
+        b6.setBackground(new Color(255, 255, 0));
+        b7.setBackground(new Color(255, 255, 0));
+        b8.setBackground(new Color(255, 255, 0));
+        b9.setBackground(new Color(255, 255, 0));
+        bDot.setBackground(new Color(255, 255, 0));
+        bMul.setBackground(new Color(50, 200, 100));
+        bRest.setBackground(new Color(50, 200, 100));
+        bSum.setBackground(new Color(50, 200, 100));
+        bDiv.setBackground(new Color(50, 200, 100));
+        bEqual.setBackground(new Color(50, 200, 100));
     }
 
     public void launchFrame() {
         //Ventana de visualizacion del texto
         salida.setSize(50, 10);
-        salida.setBackground(Color.YELLOW);
+        salida.setBackground(new Color(85, 170, 170));
         //Paneles y configuracion
         panel1.setLayout(new GridLayout(4, 4));
         //Teclado
+        panel1.add(b0);
         panel1.add(b1);
         panel1.add(b2);
         panel1.add(b3);
@@ -65,7 +82,6 @@ public class vista {
         panel1.add(b7);
         panel1.add(b8);
         panel1.add(b9);
-        panel1.add(b0);
         panel1.add(bDot);
         panel1.add(bSum);
         panel1.add(bRest);
@@ -73,7 +89,10 @@ public class vista {
         panel1.add(bDiv);
         panel1.add(bEqual);
         //Ventana Principal
-        frame.setSize(400, 800);
+        Font font = new Font("Arial black", Font.BOLD, 16);
+        frame.setFont(font);
+        frame.setSize(245, 245);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(salida, BorderLayout.NORTH);
         frame.add(panel1, BorderLayout.CENTER);
