@@ -69,6 +69,7 @@ public class vista {
         //Ventana de visualizacion del texto
         salida.setSize(50, 10);
         salida.setBackground(new Color(85, 170, 170));
+        salida.setEditable(false);
         //Paneles y configuracion
         panel1.setLayout(new GridLayout(4, 4));
         //Teclado
